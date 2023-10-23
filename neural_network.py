@@ -67,7 +67,7 @@ class Graph_Survival_Analysis(nn.Module):
 
 
     def get_fbn_feature(self, RNASeq_feature, miRNA_feature):
-        temp_fea = torch.sum(torch.reshape(self.RNASeq_linear(self.dropout(RNASeq_feature)), (-1, 20, 10)) *
+        temp_fea = torch.sum(torch.reshape(self.RNASeq_linear(RNASeq_feature), (-1, 20, 10)) *
                              torch.reshape(self.miRNA_linear(miRNA_feature), (-1, 20, 10)), dim=1)
         return torch.sqrt(F.relu(temp_fea)) - torch.sqrt(F.relu(-temp_fea))
 
@@ -77,4 +77,4 @@ class Graph_Survival_Analysis(nn.Module):
         fbn_feature = self.get_fbn_feature(RNASeq_feature, miRNA_feature)
         X = torch.cat((F.normalize((RNASeq_feature +miRNA_feature)),  fbn_feature), 1)
 
-        return self.Cox(self.GCN_feature_fusion(torch.cat((self.plus_bn(torch.mm(S, X)[:, 0:50]),self.fbm_bn(torch.mm(S, X)[:, 50:60])), 1)))
+        return self.Cox(self.GCN_feature_fusion(self.dropout(torch.cat((self.plus_bn(torch.mm(S, X)[:, 0:50]),self.fbm_bn(torch.mm(S, X)[:, 50:60])), 1))))
