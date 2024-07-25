@@ -186,7 +186,7 @@ if __name__ == '__main__':
         distance = torch.median(W_miRNA_temp , 0)
         print(distance[0])
         for i in range(W_miRNA.shape[0]):
-            W_miRNA[i, :] = W_miRNA[i, :]/(0.25*distance[0])
+            W_miRNA[i, :] = W_miRNA[i, :]/(0.2*distance[0])
         W_miRNA = torch.exp(-W_miRNA)
         if k > 0:
             topk, indices = torch.topk(W_miRNA, k)
