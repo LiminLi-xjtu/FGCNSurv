@@ -9,9 +9,9 @@ $ pip install pandas=1.3.5, numpy=1.20.2, scikit-learn=1.0.2, pytorch=1.9.0, lif
 
 # Run the main routine
 
-cd FGCNSurv
-
 git clone [https://github.com/LiminLi-xjtu/FGCNSurv.git]
+
+cd FGCNSurv
 
 python RNASeq_miRNA_FGCNSurv.py
 
