@@ -41,8 +41,8 @@ class Graph_Survival_Analysis(nn.Module):
                                              Highway(50, 3, f=F.relu),
                                              )
 
-        self.RNASeq_linear = nn.Linear(50, 200, bias=False)
-        self.miRNA_linear = nn.Linear(50, 200, bias=False)
+        self.RNASeq_linear = nn.Linear(50, 50, bias=False)
+        self.miRNA_linear = nn.Linear(50, 50, bias=False)
         self.fbm_bn = nn.BatchNorm1d(10)
         self.plus_bn = nn.BatchNorm1d(50)
         self.dropout = nn.Dropout(0.3)
@@ -67,8 +67,8 @@ class Graph_Survival_Analysis(nn.Module):
 
 
     def get_fbn_feature(self, RNASeq_feature, miRNA_feature):
-        temp_fea = torch.sum(torch.reshape(self.RNASeq_linear(RNASeq_feature), (-1, 20, 10)) *
-                             torch.reshape(self.miRNA_linear(miRNA_feature), (-1, 20, 10)), dim=1)
+        temp_fea = torch.sum(torch.reshape(self.RNASeq_linear(RNASeq_feature), (-1, 5, 10)) *
+                             torch.reshape(self.miRNA_linear(miRNA_feature), (-1, 5, 10)), dim=1)
         return torch.sqrt(F.relu(temp_fea)) - torch.sqrt(F.relu(-temp_fea))
 
     def get_survival_result(self, gene, miRNA, S):
