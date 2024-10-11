@@ -85,9 +85,9 @@ def CIndex(pred, ytime_test, ystatus_test):
 if __name__ == '__main__':
 
     data_base_path = "../BRCA"
-    RNASeq_dataframe = pd.read_csv(data_base_path + "/RNASeq.csv")
+    RNASeq_dataframe = pd.read_csv(data_base_path + "/RNASeq.csv").iloc[:, 0:6000]
     clinical_dataframe = pd.read_csv(data_base_path + "/clinical.csv")
-    miRNA_dataframe = pd.read_csv(data_base_path + "/miRNA.csv")
+    miRNA_dataframe = pd.read_csv(data_base_path + "/miRNA.csv").iloc[:, 0:600]
     random.seed(1)
     torch.manual_seed(1)
     np.random.seed(1)
