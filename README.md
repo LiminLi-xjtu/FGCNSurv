@@ -3,9 +3,11 @@ FGCNSurv: dually fused graph convolutional network for multi-omics survival pred
 
 This is an implementation of FGCNSurv in Python 3.9.5 under Linux with CPU Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz. It follows a modern deep learning design and is implemented by PyTorch platform.
 
-# Installation
+# Environment Installation
 
-$ pip install pandas=1.3.5, numpy=1.20.2, scikit-learn=1.0.2, pytorch=1.9.0, lifelines==0.27.0
+$ conda env create -f environment.yml
+
+$ source activate survival_analysis
 
 # Run the main routine
 
