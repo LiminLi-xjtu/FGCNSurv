@@ -13,7 +13,63 @@ from neural_network import Graph_Survival_Analysis
 # import torch.utils.data as Data
 from sklearn import preprocessing
 
-
+#
+# def AUC(pred, ytime_test, ystatus_test):
+#     N_test = ystatus_test.shape[0]
+#     ystatus_test = np.squeeze(ystatus_test)
+#     ytime_test = np.squeeze(ytime_test)
+#     theta = np.squeeze(pred)
+#     total = 0
+#     count = 0
+#
+#     for i in range(N_test):
+#         if ystatus_test[i] == 1:
+#             for j in range(N_test):
+#                 # if ytime_test[i] < quantile_2 < ytime_test[j]:
+#                 if ytime_test[i] < 365 * 1 < ytime_test[j]:
+#                     total = total + 1
+#                     if theta[j] < theta[i]:
+#                         count = count + 1
+#                     elif theta[j] == theta[i]:
+#                         count = count + 0.5
+#
+#     for i in range(N_test):
+#         if ystatus_test[i] == 1:
+#             for j in range(N_test):
+#                 # if ytime_test[i] < quantile_2 < ytime_test[j]:
+#                 if ytime_test[i] < 365 * 3 < ytime_test[j]:
+#                     total = total + 1
+#                     if theta[j] < theta[i]:
+#                         count = count + 1
+#                     elif theta[j] == theta[i]:
+#                         count = count + 0.5
+# 
+# 
+#     for i in range(N_test):
+#         if ystatus_test[i] == 1:
+#             for j in range(N_test):
+#                 # if ytime_test[i] < quantile_2 < ytime_test[j]:
+#                 if ytime_test[i] < 365 * 5 < ytime_test[j]:
+#                     total = total + 1
+#                     if theta[j] < theta[i]:
+#                         count = count + 1
+#                     elif theta[j] == theta[i]:
+#                         count = count + 0.5
+# 
+#
+#     for i in range(N_test):
+#         if ystatus_test[i] == 1:
+#             for j in range(N_test):
+#                 # if ytime_test[i] < quantile_2 < ytime_test[j]:
+#                 if ytime_test[i] < 365 * 10 < ytime_test[j]:
+#                     total = total + 1
+#                     if theta[j] < theta[i]:
+#                         count = count + 1
+#                     elif theta[j] == theta[i]:
+#                         count = count + 0.5
+#
+#     return count / total
+#
 
 
 def CIndex(pred, ytime_test, ystatus_test):
