@@ -219,7 +219,7 @@ if __name__ == '__main__':
 
         RNASeq_tensor = torch.cat((RNASeq_train_tensor, RNASeq_val_tensor), 0)
         miRNA_tensor = torch.cat((miRNA_train_tensor, miRNA_val_tensor), 0)
-        row = RNASeq_val_tensor.shape[0]
+        row = RNASeq_train_tensor.shape[0]
         pred_val = model.get_survival_result(RNASeq_tensor, miRNA_tensor, S)[row:, :]
         cind_val = CIndex(pred_val.detach().numpy(), ytime_val, ystatus_val)
         with open('Cox_Result_lr5e-05/Cox_Val/Regularizer_eval_randomseed' + str(k_num) + '.log', 'a') as f:
