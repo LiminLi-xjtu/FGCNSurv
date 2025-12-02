@@ -92,4 +92,3 @@ dependencies:
       - seaborn==0.11.2
       - snfpy==0.2.2
       - wrapt==1.14.1
-prefix: /share/home/4120107034/.conda/envs/survival_analysis
